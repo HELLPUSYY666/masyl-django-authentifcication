@@ -1,0 +1,6 @@
+<form method="POST" action="{% url 'dj-rest-auth:login' %}">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Введите email" required>
+    <input type="password" name="password" placeholder="Введите пароль" required>
+    <button type="submit">Войти</button>
+</form>

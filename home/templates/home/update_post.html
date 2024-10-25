@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать Масюлю</title>
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <style>
+        .header-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-header {
+            position: relative;
+        }
+
+        .registr {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .registr a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-container">
+        <img src="{% static 'home/img/logo.png' %}" alt="SCP Foundation: Animal Blog" class="logo">
+        <nav class="registr">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="https://scpfoundation.net" title="Register">Создать учетную запись</a>
+            <b>или</b>
+            <a href="https://scpfoundation.net" title="Login">Вход</a>
+        </nav>
+    </div>
+</header>
+
+<h1>Редактировать масюлю</h1>
+<form method="POST" action="{% url 'update' pk=masyli.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Обновить пост</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'home/css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Profile</title>
+        <style>
+        body {
+            background-color: #f0f0f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .description {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: -20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .description h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a73e8;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .masyulland-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #1a73e8;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .masyulland-button:hover {
+            background-color: #0c57c1;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+                .backward {
+            background-color: #1a1a1a;
+            text-align: left;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .backward a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .backward a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="backward">
+        <a href="{% url 'home' %}" title="Main">Главная</a>
+        <a href="{% url 'about-us' %}" title="About">О Масюльленде</a>
+    </nav>
+<div class="container mt-5 d-flex justify-content-center">
+
+    <div class="card p-3">
+
+        <div class="d-flex align-items-center">
+
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+                     class="rounded" width="155">
+            </div>
+
+            <div class="ml-3 w-100">
+
+                <h4 class="mb-0 mt-0">{{ user.username }}</h4>
+                <span>Senior Journalist</span>
+
+                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+
+                    <div class="d-flex flex-column">
+
+                        <span class="articles">Articles</span>
+                        <span class="number1">38</span>
+
+                    </div>
+
+                    <div class="d-flex flex-column">
+
+                        <span class="followers">Followers</span>
+                        <span class="number2">980</span>
+
+                    </div>
+
+
+                    <div class="d-flex flex-column">
+
+                        <span class="rating">Rating</span>
+                        <span class="number3">8.9</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="button mt-2 d-flex flex-row align-items-center">
+
+                    <button class="btn btn-sm btn-outline-primary w-100"
+                            onclick="location.href='{% url 'password_change' %}'">Change password
+                    </button>
+                    <form method="post" action="{% url 'logout' %}?next=/profile/">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-primary w-100 ml-2" onclick="location.href='{% url 'logout' %}?next=/profile/'">Logout</button>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

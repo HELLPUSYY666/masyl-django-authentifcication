@@ -1,0 +1,89 @@
+/* main.css */
+
+body {
+    font-family: Arial, sans-serif; /* Задайте общий шрифт для всего сайта */
+}
+
+.registr {
+    background-color: #1a1a1a;
+    text-align: left;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.registr a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.registr a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar > ul > li {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    z-index: 1000;
+}
+
+.submenu li {
+    display: block;
+}
+
+.navbar > ul > li:hover .submenu {
+    display: block;
+}
+
+/* Другие стили для слайдера и контента */
+.slider {
+    position: relative;
+}
+
+.slide {
+    display: none; /* Скрываем все слайды по умолчанию */
+}
+
+.active {
+    display: block; /* Показываем активный слайд */
+}
+
+/* Стили для подвала и заголовков */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1a1a1a;
+    color: white;
+}

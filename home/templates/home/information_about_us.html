@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О Масюльленде</title>
+    <style>
+        body {
+            background-color: #f0f0f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .description {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: -20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .description h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a73e8;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .masyulland-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #1a73e8;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .masyulland-button:hover {
+            background-color: #0c57c1;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+                .backward {
+            background-color: #1a1a1a;
+            text-align: left;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .backward a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .backward a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="backward">
+        <a href="{% url 'home' %}" title="Register">Главная</a>
+        <a style="color: white" href="https://scpfoundation.net" title="Register">Создать учетную запись</a>
+        <a style="color: white" href="https://scpfoundation.net" title="Login">Вход</a>
+    </nav>
+    <div class="container">
+        <header class="header">
+            <h1>Добро пожаловать в Масюльленд</h1>
+        </header>
+
+        <section class="description">
+            <h2>Что такое Масюльленд?</h2>
+            <p>Масюльленд — это уникальное место, где вы можете встретить удивительных масей.
+                Это не просто пространство для наблюдения, а целый мир, полный заботы о Масюлях<sup><small>милых существ</small></sup> и
+            взаимопонимания с ними. Мы создаем сообщество, которое помогает найти
+             Масюлей и помогает им обмасюлиться.</p>
+
+            <p>Здесь каждый может поделиться своими историями о масях, загружать фотографии
+            и делиться своим опытом. Масюльленд — это не только забота, но и возможность
+            создавать дружеские связи с людьми, разделяющими любовь к масям.</p>
+
+            <a href="{% url 'levels-confirm' %}" class="masyulland-button">Узнать больше</a>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Масюльленд. Все права защищены.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

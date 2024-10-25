@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/register.css' %}">
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+    <style>
+        body {
+            background-color: #f0f0f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .description {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: -20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .description h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a73e8;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .masyulland-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #1a73e8;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .masyulland-button:hover {
+            background-color: #0c57c1;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .backward {
+            background-color: #1a1a1a;
+            text-align: left;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .backward a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .backward a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* SCP style animation */
+        @keyframes glitch {
+            0% {
+                clip: rect(42px, 9999px, 44px, 0);
+                transform: skew(0.6deg);
+            }
+            5% {
+                clip: rect(10px, 9999px, 34px, 0);
+                transform: skew(0.5deg);
+            }
+            10% {
+                clip: rect(25px, 9999px, 46px, 0);
+                transform: skew(0.4deg);
+            }
+            15% {
+                clip: rect(15px, 9999px, 29px, 0);
+                transform: skew(0.3deg);
+            }
+            20% {
+                clip: rect(44px, 9999px, 21px, 0);
+                transform: skew(0.2deg);
+            }
+            25% {
+                clip: rect(34px, 9999px, 43px, 0);
+                transform: skew(0.1deg);
+            }
+            30% {
+                clip: rect(40px, 9999px, 39px, 0);
+                transform: skew(0.0deg);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #fff;
+            text-transform: uppercase;
+            background: #0c0c0c;
+            animation: glitch 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="backward">
+        <a href="{% url 'home' %}" title="Main">Главная</a>
+        <a href="{% url 'about-us' %}" title="About">О Масюльленде</a>
+    </nav>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Create account in CTR foundation</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form method="post">
+                    {% csrf_token %}
+					<input class="text" type="text" name="username" placeholder="Username" required="">
+					<input class="text email" type="email" name="email" placeholder="Email" required="">
+					<input class="text" type="password" name="password1" placeholder="Password" required="">
+					<input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+                    {{ form.errors }}
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Don't have an Account? <a href="{% url 'login' %}"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2024 CTR Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">CTR Foundation</a></p>
+		</div>
+	</div>
+	<!-- //main -->
+</body>
+</html>

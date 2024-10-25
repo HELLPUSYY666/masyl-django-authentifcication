@@ -1,0 +1,7 @@
+<form method="POST" action="{% url 'authentication:register' %}">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Введите email" required>
+    <input type="password" name="password" placeholder="Введите пароль" required>
+    <input type="password" name="password_confirm" placeholder="Повторите пароль" required>
+    <button type="submit">Создать аккаунт</button>
+</form>

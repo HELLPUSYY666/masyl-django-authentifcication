@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список суперспособностей</title>
+</head>
+<body>
+    <h1>Список суперспособностей</h1>
+    <ul>
+        {% for superntural in supernatural_list %}
+            <li>
+                <h2>{{ superntural.ability_name }}</h2>
+                <p>Масюля: {{ superntural.masyli }}</p>
+                <p>Описание: {{ superntural.description }}</p>
+                {% if superntural.photo %}
+                    <img src="{{ superntural.photo.url }}" alt="{{ superntural.ability_name }}">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

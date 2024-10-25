@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровни Доступа</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .backward {
+            background-color: #1a1a1a;
+            text-align: left;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .backward a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .backward a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .description {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: -20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .description h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .access-levels {
+            margin-top: 30px;
+        }
+
+        .access-level {
+            background-color: #f0f0f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .access-level h3 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+        }
+
+        .access-level p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .nav {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="backward">
+        <a href="{% url 'home' %}" title="Register">Главная</a>
+        <a style="color: white" href="https://scpfoundation.net" title="Register">Создать учетную запись</a>
+        <a style="color: white" href="https://scpfoundation.net" title="Login">Вход</a>
+    </nav>
+
+    <div class="container">
+        <header class="header">
+            <h1>Уровни Доступа</h1>
+        </header>
+        <nav class="nav">
+            <ul>
+                <li><a href="#guest">Гость</a></li>
+                <li><a href="#user">Пользователь</a></li>
+                <li><a href="#moderator">Модератор</a></li>
+                <li><a href="#admin">Администратор</a></li>
+            </ul>
+        </nav>
+
+        <section class="description">
+            <h2>Какие уровни доступа существуют?</h2>
+            <p>На нашем сайте существуют различные уровни доступа, каждый из которых предоставляет определённые возможности
+                для пользователей. Ознакомьтесь с уровнями ниже и узнайте, какие привилегии доступны для каждого.</p>
+
+            <div class="access-levels">
+                <div class="access-level" id="guest">
+                    <h3>Уровень 1: Гость</h3>
+                    <p>Гости имеют ограниченный доступ к контенту. Они могут просматривать общие материалы, но не могут
+                        оставлять комментарии или участвовать в обсуждениях.</p>
+                </div>
+
+                <div class="access-level" id="user">
+                    <h3>Уровень 2: Пользователь</h3>
+                    <p>Пользователи могут оставлять комментарии, участвовать в обсуждениях и получать доступ к
+                        дополнительным материалам. Для получения этого уровня необходимо зарегистрироваться.</p>
+                </div>
+
+                <div class="access-level" id="moderator">
+                    <h3>Уровень 3: Модератор</h3>
+                    <p>Модераторы имеют все привилегии пользователей, а также могут управлять комментариями и содержимым,
+                        следить за порядком на сайте.</p>
+                </div>
+
+                <div class="access-level" id="admin">
+                    <h3>Уровень 4: Администратор</h3>
+                    <p>Администраторы обладают полным доступом ко всем функциям сайта. Они могут управлять пользователями,
+                        изменять настройки и контролировать контент на сайте.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2024 Масюльленд. Все права защищены.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

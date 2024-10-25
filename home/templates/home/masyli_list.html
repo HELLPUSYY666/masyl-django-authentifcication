@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список Масюль</title>
+        <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <style>
+        .header-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-header {
+            position: relative;
+        }
+
+        .registr {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .registr a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-container">
+        <img src="{% static 'home/img/logo.png' %}" alt="SCP Foundation: Animal Blog" class="logo">
+        <nav class="registr">
+            <a href="{% url 'home' %}">Главная</a>
+        </nav>
+    </div>
+</header>
+    <h1>Список Масюль</h1>
+    <ul>
+        {% for masyl in masyli %}
+            <li>
+                <h2><a href="{% url 'supernatural-list' %}">{{ masyl.name }}</a></h2>
+                <p>Возраст: {{ masyl.age }}</p>
+                <p>Цвет: {{ masyl.color }}</p>
+                <p>Происхождение: {{ masyl.origin }}</p>
+                {% if masyl.photo %}
+                    <img src="{{ masyl.photo.url }}" alt="{{ masyl.name }}" height="300" width="300">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

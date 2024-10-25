@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} CTR - Foundation  {% endblock %}</title>
+    <style>
+        .registr {
+            background-color: #1a1a1a;
+            text-align: left;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .registr a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .registr a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="registr" style="background-color: #1a1a1a; text-align: right;">
+        <a style="color: white" href="{% url 'register' %}" title="Register">Создать учетную запись</a>
+        <b style="color: darkgray">или</b>
+        <a style="color: white" href="{% url 'profile' %}" title="Login">Вход</a>
+    </nav>
+    <a href="https://scpfoundation.net">
+        <img src="{% static 'home/img/logo.png' %}" alt="SCP Foundation: Animal Blog" class="logo">
+    </a>
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="{% url 'home' %}" title="Go to Home">Главная</a></li>
+        <li>
+            <a href="#" title="View Object List">Действия</a>
+            <ul class="submenu">
+                <li><a href="{% url 'add-masyli' %}" title="Object 1">Написать пост о Масе</a></li>
+                <li><a href="{% url 'masyli_list' %}" title="Object 2">Читать посты</a></li>
+                {% for masyl in masyli %}
+                    <li><a href="{% url 'update' pk=masyl.id %}" title="Редактировать пост: {{ masyl.title }}">Редактировать
+                        пост</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="https://github.com/HELLPUSYY666" title="Contact Us">Контакты</a></li>
+    </ul>
+</nav>
+
+<style>
+    .navbar {
+        background-color: #333;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar > ul > li {
+        position: relative;
+        display: inline-block;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 14px 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #575757;
+    }
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        z-index: 1000;
+    }
+
+    .submenu li {
+        display: block;
+    }
+
+    .navbar > ul > li:hover .submenu {
+        display: block;
+    }
+</style>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide active">
+            <img src="{% static 'home/img/legendarniy1.jpg' %}" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="{% static 'home/img/cent_slider2.jpg' %}" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="{% static 'home/img/cent_slider3.jpg' %}" alt="Image 3">
+        </div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        if (index >= slides.length) currentSlide = 0;
+        if (index < 0) currentSlide = slides.length - 1;
+
+        slides.forEach((slide, i) => {
+            slide.style.display = (i === currentSlide) ? 'block' : 'none';
+        });
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlide += n);
+    }
+
+    showSlide(currentSlide);
+</script>
+<div id="side-bar">
+    <div class="new_bar">
+        <div class="w-collapsible collapsible-block" style="display: block">
+            <div class="collapsible-block-unfolded-link">
+                <a style="color: white; background-color: black; padding:10px 20px; border-radius: 5px; text-transform: uppercase;font-weight: bold;text-decoration: none;transition: background-color 0.3s ease;"
+                   class="collapsible-block-link" href="https://scpfoundation.net">О Масюльленде</a>
+            </div>
+            <div style="background-color: #333; padding:10px 20px; border-radius: 5px; text-transform: uppercase;font-weight: bold;text-decoration: none;transition: background-color 0.3s ease;"
+                 class="collapsible-block-content">
+                <div class="menu-item">
+                    <a style="text-decoration: none; color: white" href="{% url 'about-us' %}">Общая Информация</a>
+                </div>
+                <div class="submenu-item">
+                    <a style="text-decoration:none; color: white" href="{% url 'levels-confirm' %}">Уровни допуска</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.collapsible-block-link').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const content = this.closest('.collapsible-block').querySelector('.collapsible-block-content');
+            content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+        });
+    });
+
+</script>
+<main>
+    <section class="content">
+        <article class="article">
+            <h2>Item #: CTR-001 - Street Cat</h2>
+            <p><strong>Object Class:</strong> Opasni </p>
+            <p><strong>Special Containment Procedures:</strong> CTR-001 is to be monitored at all times when spotted
+                near the ████████ park.</p>
+            <p><strong>Description:</strong> CTR-001 appears to be a stray feline of unknown origin. It is commonly seen
+                near public spaces and appears friendly, though its behavior is anomalous when exposed to small rodents.
+            </p>
+        </article>
+
+        <article class="article">
+            <h2>Item #: CTR-002 - Domestic Dog</h2>
+            <p><strong>Object Class:</strong> Bezopasni</p>
+            <p><strong>Special Containment Procedures:</strong> CTR-002 is to be contained in a standard domestic
+                environment with access to food, water, and exercise.</p>
+            <p><strong>Description:</strong> CTR-002 is a domesticated canine with no observable anomalous properties.
+                Reports have suggested a heightened intelligence.</p>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 SCP Foundation: Animal Blog. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

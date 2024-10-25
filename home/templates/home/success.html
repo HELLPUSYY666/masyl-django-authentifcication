@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успех</title>
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .success-message {
+            background-color: #4CAF50; /* Зеленый цвет для успеха */
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF; /* Цвет кнопки */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3; /* Темнее при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <h1>Успех!</h1>
+        <p>Ваши данные были успешно сохранены.</p>
+    </div>
+    <a href="{% url 'home' %}">Вернуться на главную</a> <!-- Ссылка на главную страницу -->
+</body>
+</html>
