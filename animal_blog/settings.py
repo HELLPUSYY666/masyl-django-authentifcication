@@ -189,12 +189,14 @@ DJOSER = {
     'LOGIN_FIELD': 'email',
 }
 
+
 LOGIN_REDIRECT_URL = reverse_lazy("profile")
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'LOCATION': 'redis://redis:6379/1',
     }
 }
