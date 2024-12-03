@@ -1,26 +1,28 @@
 # masyl-django-authentifcication
-Project Overview
+
+# Project Overview
 
 This project is a web application for creating a blog where users can share posts and leave comments about unusual phenomena. The application is built using Django and Redis and includes user authentication through Django Authentication. Users can write articles, comment on them, and interact with other members of the community.
 
-Features
+# Features
 
 User Registration and Authentication: Integrated with Django Authentication for secure account creation and login.
 Content Management: Ability to create, edit, and delete posts.
 Comments: Support for commenting on posts, allowing users to discuss and share opinions.
 Notification System and Caching: Utilizes Redis for caching data and managing user sessions to enhance performance.
 Modern Technologies: The project leverages Docker and Docker Compose for simplified deployment and container management.
-Tech Stack
 
-Python 3.x: The main programming language of the project.
-Django: Framework for building the server-side logic of the web application.
-Redis: Used for caching and session management.
-HTML/CSS: Used for building and styling the user interface.
-Docker: For packaging the application and its dependencies into containers.
-Docker Compose: For managing multi-container applications.
-Installation and Setup
+## Tech Stack
 
-Requirements
+- Python 3.x: The main programming language of the project.
+- Django: Framework for building the server-side logic of the web application.
+- Redis: Used for caching and session management.
+- HTML/CSS: Used for building and styling the user interface.
+- Docker: For packaging the application and its dependencies into containers.
+- Docker Compose: For managing multi-container applications.
+- Installation and Setup
+
+# Requirements
 
 Installed Docker
 Installed Docker Compose
@@ -38,7 +40,7 @@ docker-compose up
 
 After a successful startup, open your browser and go to http://localhost:8000.
 
-Database Migrations
+# Database Migrations
 To run the database migrations, use the following command:
 docker-compose run web python manage.py migrate
 
