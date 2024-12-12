@@ -7,3 +7,4 @@ dj-rest-auth
 djoser
 pillow
 redis
+gunicorn
