@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: django
-          image: zakakriya/new_animal
+          image: zakakriya/new_animal_kube:latest
           ports:
             - containerPort: 8000
           env:
