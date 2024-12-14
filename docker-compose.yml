@@ -5,13 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate && gunicorn animal_blog.wsgi:application --bind 0.0.0.0:8000 --workers 3"
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     environment:
       - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=sqlite:///db.sqlite3
     depends_on:
       - redis
     networks:
@@ -27,3 +28,4 @@ services:
 networks:
   app-network:
     driver: bridge
+

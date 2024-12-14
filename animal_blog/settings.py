@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'djoser',
     'rest_framework_simplejwt',
+    'gunicorn'
 ]
 
 MIDDLEWARE = [
