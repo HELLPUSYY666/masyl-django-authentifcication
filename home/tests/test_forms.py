@@ -70,3 +70,34 @@ class SupernaturalFormTest(TestCase):
         self.assertIn('masyli', form.errors)
         self.assertIn('ability_name', form.errors)
         self.assertIn('description', form.errors)
+
+
+class RegisterFormTest(TestCase):
+    def test_register_form_valid(self):
+        form = RegisterForm(data={
+            'username': 'testuser',
+            'email': 'testuser@example.com',
+            'password1': 'StrongPassword123',
+            'password2': 'StrongPassword123',
+        })
+        self.assertTrue(form.is_valid())
+
+    def test_register_form_invalid_passwords(self):
+        form = RegisterForm(data={
+            'username': 'testuser',
+            'email': 'testuser@example.com',
+            'password1': 'password123',
+            'password2': 'differentpassword123',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertIn('password2', form.errors)
+
+    def test_register_form_invalid_email(self):
+        form = RegisterForm(data={
+            'username': 'testuser',
+            'email': 'invalid-email',
+            'password1': 'StrongPassword123',
+            'password2': 'StrongPassword123',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)
