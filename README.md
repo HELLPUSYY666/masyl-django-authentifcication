@@ -28,8 +28,8 @@ Installed Docker
 Installed Docker Compose
 
 Clone the Repository
-git clone https://github.com/username/your-project-name.git
-cd your-project-name
+git clone https://github.com/HELLPUSYY666/masyl-django-authentifcication.git
+cd masyl-django-authentifcication
 
 Build and Run the Application
 Build the containers with:
